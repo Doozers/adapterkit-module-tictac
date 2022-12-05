@@ -15,11 +15,11 @@ func New() TictacSvcServer {
 
 func (s *service) Countdown(req *CountdownReq, serv TictacSvc_CountdownServer) error {
 	for i := req.Count; i > 0; i-- {
-		time.Sleep(time.Second)
 		err := serv.Send(&CountdownRes{Msg: fmt.Sprintf("%d seconds left", i)})
 		if err != nil {
 			return err
 		}
+		time.Sleep(time.Second)
 	}
 
 	if req.Msg == "" {
