@@ -7,7 +7,7 @@ service TictacSvc {
 
 
 message CountdownReq {
-    int32 count = 1;
+    int64 count = 1;
     string msg = 2;
 };
 
